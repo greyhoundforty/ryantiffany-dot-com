@@ -1,3 +1,42 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "https://ryantiffany.com/"
+languageCode = "en"
+defaultContentLanguage = "en"
+title = "ryan tiffany dot com"
+theme = "hallo"
+disableKinds = ["page", "section", "taxonomy", "taxonomyTerm"]
+
+[Author]
+    name = "Ryan Tiffany"
+
+[params]
+
+    [[params.links]]
+        iconset = "fas"
+        icon = "envelope"
+        title = "E-mail"
+        url = "ryan@ryantiffany.com"
+
+    [[params.links]]
+        icon = "github-alt"
+        title = "Github"
+        url = "https://github.com/greyhoundforty"
+
+    [[params.links]]
+        icon = "twitter"
+        title = "Twitter"
+        url = "https://twitter.com/ryantiffany"
+
+    [[params.links]]
+        icon = "gitlab"
+        title = "Gitlab"
+        url = "https://gitlab.cloud-design.dev/greyhoundforty"
+
+    [[params.links]]
+        icon = "instagram"
+        title = "Instagram"
+        url = "https://www.instagram.com/greyhound40/"
+
+    [[params.links]]
+        icon = "linkedin-in"
+        title = "LinkedIn"
+        url = "https://www.linkedin.com/in/ryan-tiffany-786a036a/"
