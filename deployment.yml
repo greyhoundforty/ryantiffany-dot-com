@@ -1,0 +1,52 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ryantiffany-deployment
+  labels:
+    app: ryantiffany-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ryantiffany-app
+  template:
+    metadata:
+      labels:
+        app: ryantiffany-app
+    spec:
+      containers:
+      - name: ryantiffany-app
+        image: us.icr.io/rtiffany/ryantiffany-dot-com:1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: ryantiffany-service
+spec:
+  selector:
+    app: ryantiffany-app
+  ports:
+  - protocol: TCP
+    port: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ryantiffany-ingress
+spec:
+  tls:
+  - hosts:
+    - ryantiffany.com
+    secretName: ryantiffany-dot-com-cert
+  rules:
+  - host: ryantiffany.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: ryantiffany-service
+          servicePort: 80
